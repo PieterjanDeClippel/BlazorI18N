@@ -1,0 +1,10 @@
+﻿@page "/"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Translations.Translations> stringLocalizer;
+
+<PageTitle>@stringLocalizer["WelcomeMessage"]</PageTitle>
+
+<h1>@stringLocalizer["WelcomeMessage"]</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
