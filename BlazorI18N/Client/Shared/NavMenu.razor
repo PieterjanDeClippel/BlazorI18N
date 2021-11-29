@@ -31,19 +31,28 @@
         </div>
         <hr />
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="@navigationManager.GetUriWithQueryParameter("culture", "en-EN")">
+            @*<NavLink class="nav-link" href="@navigationManager.GetUriWithQueryParameter("culture", "en-EN")">
                 English
-            </NavLink>
+            </NavLink>*@
+            <button @onclick="@(e => OnSwitchLanguage("en-EN"))">
+                English
+            </button>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="@navigationManager.GetUriWithQueryParameter("culture", "fr-FR")">
+            @*<NavLink class="nav-link" href="@navigationManager.GetUriWithQueryParameter("culture", "fr-FR")">
                 Fran&ccedil;ais
-            </NavLink>
+            </NavLink>*@
+            <button @onclick="@(e => OnSwitchLanguage("fr-FR"))">
+                Fran&ccedil;ais
+            </button>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="@navigationManager.GetUriWithQueryParameter("culture", "nl-NL")">
+            @*<NavLink class="nav-link" href="@navigationManager.GetUriWithQueryParameter("culture", "nl-NL")">
                 Nederlands
-            </NavLink>
+            </NavLink>*@
+            <button @onclick="@(e => OnSwitchLanguage("nl-NL"))">
+                Nederlands
+            </button>
         </div>
     </nav>
 </div>
@@ -52,6 +61,11 @@
     private bool collapseNavMenu = true;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void OnSwitchLanguage(string culture)
+    {
+        navigationManager.NavigateTo(navigationManager.GetUriWithQueryParameter("culture", culture), forceLoad: true);
+    }
 
     private void ToggleNavMenu()
     {
